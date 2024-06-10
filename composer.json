@@ -1,0 +1,13 @@
+{
+    "name": "riyan/roman-numerals",
+    "type": "project",
+    "authors": [
+        {
+            "name": "SadiqSaira",
+            "email": "sairaishaq@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "11"
+    }
+}
