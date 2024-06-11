@@ -6,6 +6,7 @@ final class RomanNumeralTest extends TestCase
     public function test_convert_to_basic_roman_numerals(): void
     {
         $romanNumeral = new RomanNumeral();
+        //numbers that convert into basic numerals
         $this->assertEquals("I", $romanNumeral->convert(1));
         $this->assertEquals("V", $romanNumeral->convert(5));
         $this->assertEquals("X", $romanNumeral->convert(10));
@@ -19,6 +20,7 @@ final class RomanNumeralTest extends TestCase
     public function test_convert_to_special_roman_numerals(): void
     {
         $romanNumeral = new RomanNumeral();
+        //number that convert into special case roman numeral
         $this->assertEquals("IV", $romanNumeral->convert(4));
         $this->assertEquals("IX", $romanNumeral->convert(9));
         $this->assertEquals("XL", $romanNumeral->convert(40));
@@ -37,13 +39,13 @@ final class RomanNumeralTest extends TestCase
         //numbers between 5 to 10
         $this->assertEquals("VI", $romanNumeral->convert(6));
         $this->assertEquals("VII", $romanNumeral->convert(7));
-        $this->assertEquals("VII", $romanNumeral->convert(8));
+        $this->assertEquals("VIII", $romanNumeral->convert(8));
 
         // numbers between 10 to 50
         $this->assertEquals("XII", $romanNumeral->convert(12));
         $this->assertEquals("XXX", $romanNumeral->convert(30));
         $this->assertEquals("XXXI", $romanNumeral->convert(31));
-        $this->assertEquals("XLIX", $romanNumeral->convert(40));
+        $this->assertEquals("XL", $romanNumeral->convert(40));
 
         //numbers between 50 to 100
         $this->assertEquals("LII", $romanNumeral->convert(52));
@@ -74,4 +76,5 @@ final class RomanNumeralTest extends TestCase
         $this->assertEquals("", $romanNumeral->convert(4000));
 
     }
+        
 }
