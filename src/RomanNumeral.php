@@ -3,50 +3,37 @@ class RomanNumeral
 {
     public function convert(int $number): string
     {
-        // Define an array to map numbers to their corresponding Roman numerals
+        
+        // Roman Numeral array contains basic and special case roman numerals 
         $romanNumerals = [
-            1 => 'I',
-            4 => 'IV',
-            5 => 'V',
-            9 => 'IX',
-            10 => 'X',
-            40 => 'XL',
-            50 => 'L',
-            90 => 'XC',
-            100 => 'C',
-            400 => 'CD',
-            500 => 'D',
-            900 => 'CM',
             1000 => 'M',
-            2 => 'II',
-            3 => 'III',
-            6 => 'VI',
-            7 => 'VII',
-            8 => 'VIII',
-            12 => 'XII',
-            30 => 'XXX',
-            31 => 'XXXI',
-            52 => 'LII',
-            60 => 'LX',
-            80 => 'LXXX',
-            81 => 'LXXXI',
-            102 => 'CII',
-            201 => 'CCI',
-            300 => 'CCC',
-            502 => 'DII',
-            601 => 'DCI',
-            700 => 'DCC',
-            1100 => 'MC',
-            3000 => 'MMM',
-            3999 => 'MMMCMXCIX',
+            900 => 'CM',
+            500 => 'D',
+            400 => 'CD',
+            100 => 'C',
+            90 => 'XC',
+            50 => 'L',
+            40 => 'XL',
+            10 => 'X',
+            9 => 'IX',
+            5 => 'V',
+            4 => 'IV',
+            1 => 'I',
         ];
-
+       
+        $result = '';
         // Return the corresponding Roman numeral if it exists in the array
-        if (isset($romanNumerals[$number])) {
-            return $romanNumerals[$number];
+        if ($number>0 && $number< 4000) {
+            while($number > 0) {
+                foreach ($romanNumerals as $num => $roman ) {
+                    if($number >= $num) {
+                        $quotient = intdiv($number, $num);
+                        $result .= str_repeat($roman,$quotient);
+                        $number -= $quotient * $num;
+                    }
+                }
+            }
         }
-
-        // If the number is not found, return an empty string
-        return '';
+        return $result; 
     }
 }
